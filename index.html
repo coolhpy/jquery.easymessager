@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>EasyMessager</title>
+		<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easymessager.js"></script>
+		<link rel="stylesheet" type="text/css" href="jquery.easymessager.css" />
+		<!--[if IE 6]>
+		<link rel="stylesheet" type="text/css" href="jquery.easymessager.ie6.css" />
+		<![endif]-->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// 欢迎消息
+				$.easymessager('感谢您使用EasyMessager!');
+
+				// 全局参数设置
+				$.easymessager.set({timeout: 2});
+
+				// 默认消息
+				$('#demo1').click(function() {
+					$.easymessager('2秒后<span style="color:#f60">自动关闭</span>'+Math.random());
+				});
+
+				// 自定义样式消息
+				$('#demo2').click(function() {
+					$.easymessager('自定义消息'+Math.random(), {timeout: 0, classMessager: 'easymessager warning'});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1>EasyMessager</h1>
+		<p>这是一个可以帮助你简单的创建提示信息的jQuery插件。</p>
+		<p><em style="font-size:12px; color:#f30;">注：如果消息设定了自动关闭，则会按照消息的新旧程度（新->旧）逐个关闭，遇到未设定自动关闭的消息，需要等待手工点击关闭后，后面的消息才会继续下去。这样做的目的是保证用户可以查看到每一条消息。</em></p>
+		<h3>它有如下特点：</h3>
+		<ul>
+			<li>支持自动关闭消息</li>
+			<li>支持多消息同时存在</li>
+			<li>支持自定义样式</li>
+			<li>全局设置和每个消息的单独设置</li>
+			<li>夸浏览器，IE6+，FireFox，Google Chrome</li>
+		</ul>
+		<h3>功能测试：</h3>
+		<p>
+			<input type="button" id="demo1" value="默认消息（2秒后自动关闭）" />
+			<input type="button" id="demo2" value="自定义消息（样式自定义，不自动关闭）" />
+		</p>
+		<h3>说明文档：</h3>
+		<ul>
+			<li>
+				<p><strong>$.easymessager.set(options)</strong>: 全局参数设置，但是在调用该函数之前已创建的消息不受影响</p>
+				<ol>
+					<li>
+						<p><strong>(map) options</strong>: 参数</p>
+						<ul>
+							<li><strong>timeout</strong>: 自动关闭消息的秒数，默认：0，表示不自动关闭</li>
+							<li><strong>classMessager</strong>: 消息的样式，默认：'easymessager'</li>
+							<li><strong>classCloser</strong>: 消息关闭按钮的样式，默认：'easymessager-closer'</li>
+							<li><strong>classMessage</strong>: 消息内容的样式，默认：'easymessager-message'</li>
+						</ul>
+					</li>
+				</ol>
+			</li>
+			<li>
+				<p><strong>$.easymessager(message, options)</strong>: 创建一个消息</p>
+				<ol>
+					<li>
+						<p><strong>(string) message</strong>: 消息内容，支持HTML</p>
+					</li>
+					<li>
+						<p><strong>(map) options</strong>: 参数，参考$.easymessager.set()</p>
+					</li>
+				</ol>
+			</li>
+		</ul>
+	</body>
+</html>
