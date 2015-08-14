@@ -1,6 +1,6 @@
 /**
  * jquery.easymessager.js
- * 这是一个jQuery的插件，它可以让您轻松的创建开关按钮。
+ * 这是一个jQuery的插件，它可以让您轻松的在页面上推送消息。
  * 
  * -- REQUIRE: jQuery --
  * 
